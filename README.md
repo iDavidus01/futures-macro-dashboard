@@ -11,7 +11,7 @@ Our core analytical suite provides deep, context-aware insights into the current
 - **Seasonality Profiling:** Leverages historical seasonal trends tailored to the current month to forecast probable ES/NQ price actions.
 - **AI-Driven Market Sentiment:** Summarizes the current market environment (bullish, bearish, or neutral) using advanced LLM integration to digest complex fundamental data.
 - **Intelligent Volatility Prediction:** Batches and analyzes upcoming economic news using AI to determine potential volatility impact and probable market reactions.
-- **Macro News Scraping:** Automatically pulls and organizes high-impact economic events from ForexFactory.
+- **Macro News Scraping:** Automated aggregation of high-impact economic events from public macro data sources.
 
 ### ✨ Premium UI/UX
 - Built with a stunning dark-mode glassmorphism aesthetic.

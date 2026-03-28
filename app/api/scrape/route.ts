@@ -1,13 +1,13 @@
 
 import { NextResponse } from 'next/server';
-import { scrapeForexFactory } from '@/lib/scraper';
+import { scrapeMacroData } from '@/lib/scraper';
 import { analyzeNews } from '@/lib/ai';
 
 export const revalidate = 900; // 15 minutes
 
 export async function GET() {
     try {
-        const rawNews = await scrapeForexFactory();
+        const rawNews = await scrapeMacroData();
 
         // In a real scenario, we'd limit this to meaningful news
         // For MVP demonstration, limit to top 5 most relevant to avoid too much "AI work"

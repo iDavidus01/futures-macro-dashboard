@@ -2,7 +2,7 @@
 import { Suspense } from 'react';
 import Image from 'next/image';
 import { getMarketContext } from '@/lib/ai';
-import { scrapeForexFactory } from '@/lib/scraper';
+import { scrapeMacroData } from '@/lib/scraper';
 import { UsdFuturesNews } from '@/lib/types';
 import { DashboardClient } from '@/components/dashboard-client';
 import { NYClock } from '@/components/ny-clock';
@@ -25,7 +25,7 @@ async function Dashboard() {
       bias: 'neutral'
     };
 
-    const rawNews = await scrapeForexFactory();
+    const rawNews = await scrapeMacroData();
 
     news = rawNews.slice(0, 12).map((item) => ({
       ...item,

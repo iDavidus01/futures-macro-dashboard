@@ -42,7 +42,7 @@ function saveToCache(news: Partial<UsdFuturesNews>[]) {
     }
 }
 
-export async function scrapeForexFactory(): Promise<Partial<UsdFuturesNews>[]> {
+export async function scrapeMacroData(): Promise<Partial<UsdFuturesNews>[]> {
     console.log('🌐 Fetching live news from XML...');
 
     try {
@@ -51,7 +51,7 @@ export async function scrapeForexFactory(): Promise<Partial<UsdFuturesNews>[]> {
         });
 
         if (!response.ok) {
-            throw new Error(`FF XML returned status: ${response.status}`);
+            throw new Error(`Macro data returned status: ${response.status}`);
         }
 
         const xmlText = await response.text();
@@ -111,7 +111,7 @@ export async function scrapeForexFactory(): Promise<Partial<UsdFuturesNews>[]> {
             }
 
             newsItems.push({
-                id: `ff-${title.replace(/\s+/g, '-').toLowerCase()}-${dateStr}`.substring(0, 80),
+                id: `macro-${title.replace(/\s+/g, '-').toLowerCase()}-${dateStr}`.substring(0, 80),
                 title,
                 impact,
                 eventTimeUTC,
