@@ -20,28 +20,18 @@ async function Dashboard() {
 
 
   try {
-    context = await getMarketContext();
+    context = {
+      text: 'AI Engine is currently OFFLINE. Live market sentiment analysis and context generation are unavailable.',
+      bias: 'neutral'
+    };
+
     const rawNews = await scrapeForexFactory();
-    const relevantNews = rawNews.slice(0, 12);
 
-    const { analyzeNewsBatch } = await import('@/lib/ai');
-    const groupedNews: Record<string, Partial<UsdFuturesNews>[]> = {};
-
-    relevantNews.forEach(item => {
-      const time = item.eventTimeUTC || 'unknown';
-      if (!groupedNews[time]) groupedNews[time] = [];
-      groupedNews[time].push(item);
-    });
-
-    const analyzedGroups = await Promise.all(
-      Object.values(groupedNews).map(group => analyzeNewsBatch(group))
-    );
-
-    news = analyzedGroups.flat().sort((a, b) =>
-      new Date(a.eventTimeUTC).getTime() - new Date(b.eventTimeUTC).getTime()
-    );
-
-
+    news = rawNews.slice(0, 12).map((item) => ({
+      ...item,
+      impactStr: 'N/A (Offline)',
+      volatility: 'neutral'
+    })) as unknown as UsdFuturesNews[];
   } catch (error) {
     console.error('Dashboard data loading failed:', error);
   }
@@ -88,6 +78,12 @@ async function Dashboard() {
             <NYClock />
           </div>
         </header>
+
+        {/* AI Offline Banner */}
+        <div className="bg-red-500/10 border border-red-500/20 text-red-500 rounded-xl p-4 flex items-center justify-center font-mono text-sm tracking-wider shadow-[0_0_15px_rgba(239,68,68,0.1)]">
+          <div className="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse mr-3 shadow-[0_0_8px_rgba(239,68,68,0.8)]"></div>
+          SYSTEM STATUS: AI ENGINE OFFLINE
+        </div>
 
         <DashboardClient context={context} news={news} />
       </div>

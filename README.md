@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Futures Macro Dashboard
+**Live at:** [dashboard.nqdavid.me](https://dashboard.nqdavid.me)
 
-## Getting Started
+An advanced, AI-powered macroeconomic dashboard built for futures traders (ES/NQ). This project aggregates financial news, extracts real-time market context, and provides intelligent analysis using AI to give traders a comprehensive multidimensional view of the market state.
 
-First, run the development server:
+## 🚀 Key Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### 🧠 Market Analyst Engine
+Our core analytical suite provides deep, context-aware insights into the current market structure:
+- **Sector Heatmaps:** Visualizes institutional money flow and relative sector rotation, allowing traders to see which areas of the market are leading or lagging.
+- **Seasonality Profiling:** Leverages historical seasonal trends tailored to the current month to forecast probable ES/NQ price actions.
+- **AI-Driven Market Sentiment:** Summarizes the current market environment (bullish, bearish, or neutral) using advanced LLM integration to digest complex fundamental data.
+- **Intelligent Volatility Prediction:** Batches and analyzes upcoming economic news using AI to determine potential volatility impact and probable market reactions.
+- **Macro News Scraping:** Automatically pulls and organizes high-impact economic events from ForexFactory.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### ✨ Premium UI/UX
+- Built with a stunning dark-mode glassmorphism aesthetic.
+- Features liquid background textures, vibrant dynamic gradients, and animated components powered by Framer Motion.
+- **Real-Time NY Session Clock:** Keeps traders synchronized strictly with the New York trading session time, an essential feature for index futures trading.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚠️ System Status
+**The AI engine is currently offline.** 
+When the AI processing is temporarily unavailable, the dashboard will display an offline warning banner natively on the UI and will fall back to displaying raw macro news and data feeds without requiring API requests.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
+- **Framework:** [Next.js 14](https://nextjs.org/) (App Router)
+- **Language:** TypeScript
+- **Styling:** Tailwind CSS + Radix UI Primitives + Framer Motion
+- **AI Integration:** Anthropic AI SDK
+- **Data Gathering:** Cheerio (Web Scraping)
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📜 License
+This project is licensed under the MIT License.
